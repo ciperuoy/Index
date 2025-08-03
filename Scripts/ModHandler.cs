@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Index.Resources
+namespace Index.Scripts
 {
     public abstract class ModHandler
     {
@@ -26,14 +26,13 @@ namespace Index.Resources
                     foreach (Transform modButton in page)
                     {
                         if (modButton.name == modID.ToString())
-                        {
                             modButton.gameObject.GetComponent<MeshRenderer>().material = ButtonManager.selectedMaterial;
-                        }
                     }
                 }
             }
 
         }
+         
         public virtual void OnModDisabled()
         {
             enabled = false;
@@ -44,9 +43,7 @@ namespace Index.Resources
                     foreach (Transform modButton in page)
                     {
                         if (modButton.name == modID.ToString())
-                        {
                             modButton.gameObject.GetComponent<MeshRenderer>().material = ButtonManager.unselectedMaterial;
-                        }
                     }
                 }
             }
@@ -69,9 +66,7 @@ namespace Index.Resources
                 return instance;
             }
             else
-            {
                 Debug.LogError("No IndexMod attribute found on class " + modType.Name);
-            }
             return null;
         }
     }

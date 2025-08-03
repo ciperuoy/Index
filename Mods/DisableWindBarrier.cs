@@ -1,5 +1,4 @@
-using Index.Resources;
-using System.Collections.Generic;
+using Index.Scripts;
 using UnityEngine;
 
 namespace Index.Mods

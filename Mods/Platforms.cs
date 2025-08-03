@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
 using GorillaLocomotion.Climbing;
-using Index.Resources;
+using Index.Scripts;
 using UnityEngine;
 
 namespace Index.Mods
@@ -27,14 +27,14 @@ namespace Index.Mods
             platformL.GetComponent<MeshRenderer>().material.SetFloat("_Fill", 0.075f);
             platformL.name = "GorillaLeftPlatform";
             platformL.transform.position = Vector3.zero;
-            platformL.transform.localScale = new Vector3(0.3f, 0.06f, 0.3f);
+            platformL.transform.localScale = platSize;
             platformR = GameObject.CreatePrimitive(PrimitiveType.Cube);
             platformR.AddComponent<GorillaSurfaceOverride>();
             platformR.GetComponent<MeshRenderer>().material = new Material(Plugin.indexPanel.transform.Find("ShaderInit_Platforms").GetComponent<MeshRenderer>().materials[0]);
             platformR.GetComponent<MeshRenderer>().material.SetFloat("_Fill", 0.075f);
             platformR.name = "GorillaRightPlatform";
             platformR.transform.position = Vector3.zero;
-            platformR.transform.localScale = new Vector3(0.3f, 0.06f, 0.3f);
+            platformR.transform.localScale = platSize;
             platformTransformL = platformL.transform;
             platformTransformR = platformR.transform;
             if (isPlatformsSticky.Value)
@@ -141,10 +141,9 @@ namespace Index.Mods
             platformL.transform.position = Vector3.zero; platformR.transform.position = Vector3.zero;
             platformL.SetActive(false); platformR.SetActive(false);
             if (NoClip.instance.enabled)
-            {
                 NoClip.instance.OnModDisabled();
-            }
         }
+
         public override void OnModEnabled()
         {
             base.OnModEnabled();

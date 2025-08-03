@@ -1,7 +1,5 @@
-﻿using Index.Resources;
+﻿using Index.Scripts;
 using GorillaLocomotion;
-using BepInEx.Configuration;
-using UnityEngine;
 
 namespace Index.Mods
 {

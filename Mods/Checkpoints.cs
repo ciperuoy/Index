@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Threading.Tasks;
-using Index.Resources;
+using Index.Scripts;
 using GorillaLocomotion;
 
 namespace Index.Mods
@@ -45,7 +45,7 @@ namespace Index.Mods
         public override void OnModDisabled()
         {
             base.OnModDisabled();
-            UnityEngine.Object.Destroy(point);
+            Object.Destroy(point);
             checkpointCreated = false;
         }
 

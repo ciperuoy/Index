@@ -7,13 +7,6 @@ public class PageHandler : MonoBehaviour
     public void SetPageIndex(int newPageIndex)
     {
         if (newPageIndex >= 1)
-        {
             pageIndex = newPageIndex;
-        }
-    }
-
-    public int GetPageIndex()
-    {
-        return pageIndex;
     }
 }

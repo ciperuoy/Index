@@ -15,15 +15,18 @@ namespace Index.Mods
             base.Start();
             instance = this;
         }
+
         public override void OnUpdate()
         {
             base.OnUpdate();
 
         }
+
         public override void OnModDisabled()
         {
             base.OnModDisabled();
         }
+
         public override void OnModEnabled()
         {
             base.OnModEnabled();

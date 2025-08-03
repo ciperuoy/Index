@@ -1,5 +1,6 @@
 ﻿using System;
-namespace Index.Resources
+
+namespace Index.Scripts
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class IndexMod : Attribute

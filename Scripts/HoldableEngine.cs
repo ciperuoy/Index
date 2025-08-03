@@ -1,6 +1,5 @@
 ﻿using GorillaLocomotion;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Index.Scripts
 {
@@ -12,10 +11,7 @@ namespace Index.Scripts
 
         private ControllerInputPoller input;
 
-        public void Start()
-        {
-            input = ControllerInputPoller.instance;
-        }
+        public void Start() => input = ControllerInputPoller.instance;
 
         public void Update()
         {

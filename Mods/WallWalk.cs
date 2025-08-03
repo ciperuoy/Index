@@ -1,4 +1,4 @@
-﻿using Index.Resources;
+﻿using Index.Scripts;
 using GorillaLocomotion;
 using System.Reflection;
 using UnityEngine;
@@ -36,9 +36,8 @@ namespace Index.Mods
                 targetGravity = Vector3.Lerp(playerUp * -originalGravity.magnitude, wallNormal * -originalGravity.magnitude, 0.8f);
             }
             else
-            {
                 targetGravity = originalGravity;
-            }
+
             currentGravity = Vector3.Lerp(currentGravity, targetGravity, Time.deltaTime * smoothness);
             Physics.gravity = currentGravity;
         }
@@ -55,9 +54,6 @@ namespace Index.Mods
             Physics.gravity = originalGravity;
         }
 
-        public override void OnModEnabled()
-        {
-            base.OnModEnabled();
-        }
+        public override void OnModEnabled() => base.OnModEnabled();
     }
 }

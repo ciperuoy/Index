@@ -1,4 +1,4 @@
-using Index.Resources;
+using Index.Scripts;
 using UnityEngine;
 
 namespace Index.Mods
@@ -19,13 +19,10 @@ namespace Index.Mods
         {
             base.OnUpdate();
             if (ControllerInputPoller.instance.leftControllerIndexFloat >= 0.5f)
-            {
                 floodWater.transform.position = new Vector3(floodWater.transform.position.x, floodWater.transform.position.y - 0.035f, floodWater.transform.position.z);
-            }
+
             if (ControllerInputPoller.instance.rightControllerIndexFloat >= 0.5f)
-            {
                 floodWater.transform.position = new Vector3(floodWater.transform.position.x, floodWater.transform.position.y + 0.035f, floodWater.transform.position.z);
-            }
         }
 
         public override void OnModDisabled()

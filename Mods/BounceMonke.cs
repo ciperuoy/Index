@@ -1,4 +1,4 @@
-using Index.Resources;
+using Index.Scripts;
 using GorillaLocomotion;
 
 namespace Index.Mods

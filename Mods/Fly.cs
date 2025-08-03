@@ -1,4 +1,4 @@
-﻿using Index.Resources;
+﻿using Index.Scripts;
 using GorillaLocomotion;
 using UnityEngine;
 using BepInEx.Configuration;
@@ -31,7 +31,7 @@ namespace Index.Mods
         public override void OnUpdate()
         {
             base.OnUpdate();
-            if (ControllerInputPoller.instance.leftControllerPrimaryButton || ControllerInputPoller.instance.rightControllerPrimaryButton)
+            if (ControllerInputPoller.instance.leftControllerPrimaryButton || ControllerInputPoller.instance.rightControllerPrimaryButton) // x/a
             {
                 var direction = GTPlayer.Instance.headCollider.transform.forward;
                 var rigidbody = GTPlayer.Instance.bodyCollider.attachedRigidbody;
@@ -40,13 +40,7 @@ namespace Index.Mods
             }
 
         }
-        public override void OnModDisabled()
-        {
-            base.OnModDisabled();
-        }
-        public override void OnModEnabled()
-        {
-            base.OnModEnabled();
-        }
+        public override void OnModDisabled() => base.OnModDisabled();
+        public override void OnModEnabled() => base.OnModEnabled();
     }
 }

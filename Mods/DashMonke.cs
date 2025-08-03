@@ -1,7 +1,8 @@
 ﻿using BepInEx.Configuration;
 using GorillaLocomotion;
-using Index.Resources;
+using Index.Scripts;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Index.Mods
 {
@@ -38,14 +39,9 @@ namespace Index.Mods
                 GTPlayer.Instance.bodyCollider.attachedRigidbody.AddForce(GTPlayer.Instance.headCollider.transform.forward * dashSpeed.Value, ForceMode.VelocityChange);
             }
             else if (!ControllerInputPoller.instance.leftControllerPrimaryButton && isDash)
-            {
                 isDash = false;
-            }
         }
 
-        public override void OnModDisabled()
-        {
-            base.OnModDisabled();
-        }
+        public override void OnModDisabled() => base.OnModDisabled();
     }
 }

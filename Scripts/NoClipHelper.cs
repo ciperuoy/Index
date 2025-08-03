@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Index.Mods
+namespace Index.Scripts
 {
     public class NoClipHelper : MonoBehaviour
     {
@@ -14,14 +14,9 @@ namespace Index.Mods
                 DontDestroyOnLoad(this.gameObject);
             }
             else
-            {
                 Destroy(this.gameObject);
-            }
         }
 
-        public T[] FindAllObjectsOfType<T>() where T : Object
-        {
-            return FindObjectsOfType<T>();
-        }
+        public T[] FindAllObjectsOfType<T>() where T : Object => FindObjectsOfType<T>();
     }
 }

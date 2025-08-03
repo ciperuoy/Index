@@ -48,13 +48,10 @@ namespace Index.Scripts
             if (dnwMod)
             {
                 if ((int)currentMod > 0)
-                {
                     currentMod = (Mods)((int)currentMod - 1);
-                }
                 else
-                {
                     currentMod = (Mods)(System.Enum.GetValues(typeof(Mods)).Length - 1);
-                }
+
                 TextStuff();
             }
             else
@@ -86,13 +83,9 @@ namespace Index.Scripts
             };
 
             if (modDescriptions.TryGetValue(currentMod, out string description))
-            {
                 selmodtext3.text = description;
-            }
             else
-            {
                 selmodtext3.text = "ERROR";
-            }
 
             // config option text
 

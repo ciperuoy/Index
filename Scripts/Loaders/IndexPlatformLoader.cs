@@ -35,6 +35,7 @@ namespace Index.Scripts
             if (!Directory.Exists(zipFolder)) Directory.CreateDirectory(zipFolder);
             LoadPlatforms();
         }
+
         void Update()
         {
             if (Keyboard.current.bKey.wasPressedThisFrame) SwitchPlatform(-1);
@@ -60,10 +61,12 @@ namespace Index.Scripts
             foreach (var file in files)
                 LoadPlatform(file);
         }
+
         void LoadPlatform(string file)
         {
             if (indexPanel == null || iTransform == null)
                 return;
+
             string platformZipPath = Path.Combine(zipFolder, Path.GetFileNameWithoutExtension(file) + ".zip");
             try { File.Copy(file, platformZipPath, true); } catch (Exception e) { Debug.Log("File copy error: " + e.Message); return; }
             if (!File.Exists(platformZipPath))
@@ -87,6 +90,7 @@ namespace Index.Scripts
             try { Directory.Delete(tempFolder, true); }
             catch (Exception e) { Debug.Log("Deletion error: " + e.Message); }
         }
+
         void ApplyPlatform(AssetBundle bundle, string name)
         {
             GameObject[] prefabs = bundle.LoadAllAssets<GameObject>();
@@ -109,6 +113,7 @@ namespace Index.Scripts
             }
             bundle.Unload(false);
         }
+
         void SwitchPlatform(int direction)
         {
             if (loadedObjectsL.Count == 0 && loadedObjectsR.Count == 1)
@@ -139,6 +144,7 @@ namespace Index.Scripts
             if (Directory.Exists(zipFolder)) Directory.Delete(zipFolder, true);
         }
     }
+
     [Serializable]
     public class PlatformInfo
     {

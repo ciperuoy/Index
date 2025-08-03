@@ -1,4 +1,5 @@
-﻿using Index.Resources;
+﻿using Index.Scripts;
+using System;
 using UnityEngine;
 
 namespace Index.Mods
@@ -18,39 +19,28 @@ namespace Index.Mods
                 helperObject.AddComponent<NoClipHelper>();
             }
         }
+
         public override void OnUpdate()
         {
             base.OnUpdate();
-            if (ControllerInputPoller.instance.leftControllerIndexFloat >= 0.5 || ControllerInputPoller.instance.rightControllerIndexFloat >= 0.5)
+            foreach (MeshCollider col in NoClipHelper.Instance.FindAllObjectsOfType<MeshCollider>())
             {
-                MeshCollider[] array = NoClipHelper.Instance.FindAllObjectsOfType<MeshCollider>();
-
-                foreach (MeshCollider meshCollider in array)
-                {
-                    meshCollider.enabled = false;
-                }
-            }
-            else
-            {
-                MeshCollider[] array = NoClipHelper.Instance.FindAllObjectsOfType<MeshCollider>();
-
-                foreach (MeshCollider meshCollider in array)
-                {
-                    meshCollider.enabled = true;
-                }
+                if (ControllerInputPoller.instance.leftControllerIndexFloat >= 0.5 || ControllerInputPoller.instance.rightControllerIndexFloat >= 0.5)
+                    col.enabled = false;
+                else
+                    col.enabled = true;
             }
 
         }
+
         public override void OnModDisabled()
         {
             base.OnModDisabled();
             Platforms.instance.OnModDisabled();
-            MeshCollider[] array = NoClipHelper.Instance.FindAllObjectsOfType<MeshCollider>();
-            foreach (MeshCollider meshCollider in array)
-            {
+            foreach (MeshCollider meshCollider in NoClipHelper.Instance.FindAllObjectsOfType<MeshCollider>())
                 meshCollider.enabled = true;
-            }
         }
+
         public override void OnModEnabled()
         {
             Platforms.instance.OnModEnabled();

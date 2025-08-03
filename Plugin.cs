@@ -1,6 +1,5 @@
 ﻿using BepInEx;
 using UnityEngine;
-using Index.Resources;
 using System.Collections.Generic;
 using System;
 using System.IO;
@@ -14,8 +13,6 @@ using Index.Scripts;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Index.BepInfo;
-using UnityEngine.InputSystem;
-using Photon.Voice;
 
 namespace Index
 {
@@ -139,9 +136,7 @@ namespace Index
                 foreach (Transform child in modsTransform)
                 {
                     if (child.name.Contains("page") && child.name != "page1")
-                    {
                         child.gameObject.SetActive(false);
-                    }
                 }
                 indexPanel.transform.Find("NextPage").AddComponent<ButtonManager>();
                 indexPanel.transform.Find("PreviousPage").AddComponent<ButtonManager>();
@@ -180,8 +175,7 @@ namespace Index
                         {
                             if (page.Key.Contains(attrib.ModID.ToString()))
                             {
-                                indexPanel.transform.Find($"Mods/{attrib.ModID}")
-                                    .SetParent(indexPanel.transform.Find($"Mods/{page.Value}"), false);
+                                indexPanel.transform.Find($"Mods/{attrib.ModID}").SetParent(indexPanel.transform.Find($"Mods/{page.Value}"), false);
                                 break;
                             }
                         }
@@ -190,9 +184,7 @@ namespace Index
                 foreach (Transform child in indexPanel.transform.Find("Mods"))
                 {
                     if (!new HashSet<string> { "page1", "page2", "page3" }.Contains(child.name))
-                    {
                         child.gameObject.SetActive(false);
-                    }
                 }
                 initialized = true;
                 NetworkSystem.Instance.OnJoinedRoomEvent += LоbbyChеck;
@@ -200,10 +192,7 @@ namespace Index
                 version();
                 indexPanel.transform.Find("IndexPanel/ModInfo").GetComponent<TextMeshPro>().text = "No mod selected\n\nNo mod selected";
             }
-            catch (Exception e)
-            {
-                Logger.LogError(e);
-            }
+            catch (Exception e) { Logger.LogError(e); }   
         }
 
         private void LоbbyChеck()
@@ -212,24 +201,18 @@ namespace Index
             {
                 inRoom = true;
                 if (!indexPanel.activeSelf)
-                {
                     indexPanel.SetActive(true);
-                }
             }
             else
             {
                 inRoom = false;
                 if (indexPanel.activeSelf)
-                {
                     indexPanel.SetActive(false);
-                }
 
                 foreach (ModHandler mod in initMods)
                 {
                     if (mod.enabled)
-                    {
                         mod.OnModDisabled();
-                    }
                 }
             }
         }
@@ -241,9 +224,7 @@ namespace Index
             foreach (ModHandler mod in initMods)
             {
                 if (mod.enabled)
-                {
                     mod.OnUpdate();
-                }
             }
 
             if (ControllerInputPoller.instance.leftControllerPrimaryButton && ControllerInputPoller.instance.rightControllerPrimaryButton)
@@ -255,10 +236,8 @@ namespace Index
 
         public AssetBundle LoadAssetBundle(string path)
         {
-            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(path))
-            {
-                return AssetBundle.LoadFromStream(stream);
-            }
+            using Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(path);
+            return AssetBundle.LoadFromStream(stream);
         }
     }
 }

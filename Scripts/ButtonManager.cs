@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Index.Resources
+namespace Index.Scripts
 {
     internal class ButtonManager : MonoBehaviour
     {
@@ -73,9 +73,7 @@ namespace Index.Resources
 
                     case "PreviousPage":
                         if (PageHandler.pageIndex > 1)
-                        {
                             ChangePage(PageHandler.pageIndex - 1);
-                        }
                         break;
                 }
             }
@@ -89,9 +87,8 @@ namespace Index.Resources
             if (nextPage != null)
             {
                 if (currentPage != null)
-                {
                     currentPage.gameObject.SetActive(false);
-                }
+
                 nextPage.gameObject.SetActive(true);
                 PageHandler.pageIndex = newPageIndex;
             }

@@ -1,5 +1,5 @@
 using BepInEx.Configuration;
-using Index.Resources;
+using Index.Scripts;
 using UnityEngine;
 
 namespace Index.Mods

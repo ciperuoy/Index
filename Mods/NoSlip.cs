@@ -1,4 +1,4 @@
-﻿using Index.Resources;
+﻿using Index.Scripts;
 
 namespace Index.Mods
 {
@@ -13,10 +13,7 @@ namespace Index.Mods
             instance = this;
         }
 
-        public override void OnModDisabled()
-        {
-            base.OnModDisabled();
-        }
+        public override void OnModDisabled() => base.OnModDisabled();
 
         public override void OnModEnabled()
         {
