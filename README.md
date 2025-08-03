@@ -1,7 +1,7 @@
 <p align="center">
   <a href="#"><img src="https://github.com/user-attachments/assets/1b0bcaf9-2ada-4845-8e4d-de6585bd7b33"></a>
   <br></br>
-  Index is a legal mod for Gorilla Tag adding a panel to the game with a variety of different mods. This is a mod, not a cheat, meaning it will only work in modded lobbies, compatible with Utilla or Newtilla. This is also not considered a mod menu, but a mod toggler/panel, like KyleTheScientist's 'Bark' or Graze's 'Grate'.
+  Index is a modification for Gorilla Tag, adding a panel to the game with a variety of different mods. This is NOT a cheat, meaning it will only work in modded lobbies, compatible with Utilla or Newtilla. This is also not considered a mod menu, but a mod toggler/panel, like KyleTheScientist's 'Bark' or Graze's 'Grate'.
 </p>
 
 <p align="center">
@@ -11,7 +11,7 @@
 
 </br>
 
-<h1 align="center"> Mod List [Currently 18 mods] </h1>
+<h1 align="center"> Mod List [18] </h1>
 
 <div align="center">
 	
